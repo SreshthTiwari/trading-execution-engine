@@ -1,20 +1,26 @@
-#include "matching_engine.hpp"
-#include "market_data_interface.hpp"
 #include <iostream>
+#include "trade_execution.hpp"
 
-int main()
-{
-    // fetch live stock price
-    std::string symbol = "AAPL";
-    double live_price = get_stock_price(symbol);
-    std::cout << "live stock price for " << symbol << ": " << live_price << "\n";
+int main() {
+    // define risk parameters
+    double max_order_size = 1000.0;
+    double min_price = 10.0;
+    double max_price = 500.0;
 
-    // create matching engine
-    MatchingEngine engine;
+    // example trade orders
+    double order_size1 = 500.0;
+    double order_price1 = 50.0;
 
-    // process buy order
-    std::cout << "placing buy order at: " << live_price << "\n";
-    engine.process_order(live_price, 10, true);
+    double order_size2 = 1500.0; // exceeds max_order_size
+    double order_price2 = 50.0;
+
+    // process first trade
+    std::cout << "processing first trade:" << std::endl;
+    TradeExecution::execute_trade(order_size1, order_price1, max_order_size, min_price, max_price);
+
+    // process second trade
+    std::cout << "processing second trade:" << std::endl;
+    TradeExecution::execute_trade(order_size2, order_price2, max_order_size, min_price, max_price);
 
     return 0;
 }
