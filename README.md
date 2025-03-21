@@ -1,6 +1,6 @@
 # Trading Execution Engine
 
-A high-performance, low-latency trading execution system designed to handle rapid financial transactions. I've tried to create a scalable infrastructure for processing market data and executing trades.
+A high-performance, low-latency trading execution system designed to handle quick financial transactions. I've tried to create a scalable infrastructure for processing market data and executing trades.
 
 ## Features
 
